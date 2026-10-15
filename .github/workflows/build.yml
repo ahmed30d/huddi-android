@@ -27,6 +27,7 @@ jobs:
     - name: Build APK with Gradle 8.5
       run: |
         chmod +x gradlew
+        unset ANDROID_SDK_ROOT
         export ANDROID_HOME=$HOME/android-sdk
         mkdir -p $ANDROID_HOME
         gradle assembleDebug --no-daemon
@@ -36,3 +37,4 @@ jobs:
       with:
         name: app-debug
         path: app/build/outputs/apk/debug/app-debug.apk
+        
